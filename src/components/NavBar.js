@@ -6,6 +6,8 @@ import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
 import { HashLink } from "react-router-hash-link";
 import { BrowserRouter as Router } from "react-router-dom";
+import Lottie from "react-lottie";
+import shubhamAniimation from "../assets/animations/shubham.json";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -29,12 +31,21 @@ export const NavBar = () => {
     setActiveLink(value);
   };
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: shubhamAniimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} alt="Logo" />
+            <Lottie options={defaultOptions} height={100} width={300} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
